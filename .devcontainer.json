@@ -1,0 +1,21 @@
+{
+  "name": "Airflow Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.10-bullseye",
+
+  // Customizations for VS Code in Codespaces
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+
+  // Environment variables needed for Airflow
+  "containerEnv": {
+    "AIRFLOW_HOME": "/home/vscode/airflow"
+  }
