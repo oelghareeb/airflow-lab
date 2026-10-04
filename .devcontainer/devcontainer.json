@@ -18,7 +18,8 @@
     "AIRFLOW_HOME": "/home/vscode/airflow"
   },
 
-  "postCreateCommand": "pip install --upgrade pip && pip install \"apache-airflow[celery]==2.10.5\" --constraint \"https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-3.10.txt\"",
+  // Installs Airflow, initializes DB, and creates custom admin credentials
+  "postCreateCommand": "pip install --upgrade pip && pip install \"apache-airflow[celery]==2.10.5\" --constraint \"https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-3.10.txt\" && airflow db init && airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin",
 
   "portsAttributes": {
     "8080": {
