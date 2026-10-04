@@ -1,11 +1,10 @@
 {
   "name": "Airflow Development Environment",
   "image": "mcr.microsoft.com/devcontainers/python:1-3.10-bullseye",
-
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python3"
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
       },
       "extensions": [
         "ms-python.python",
@@ -13,8 +12,8 @@
       ]
     }
   },
-
   "containerEnv": {
-    "AIRFLOW_HOME": "/home/vscode/airflow"
+    "AIRFLOW_HOME": "/home/vscode/airflow",
+    "AIRFLOW__CORE__LOAD_EXAMPLES": "False"
   }
 }
