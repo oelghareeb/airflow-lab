@@ -1,0 +1,36 @@
+{
+  "name": "Airflow Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.10-bullseye",
+
+  // Customizations for VS Code in Codespaces
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+
+  // Environment variables needed for Airflow
+  "containerEnv": {
+    "AIRFLOW_HOME": "/home/vscode/airflow"
+  },
+
+  // Command to run after the container is created
+  "postCreateCommand": "pip install --upgrade pip && pip install \"apache-airflow[celery]==2.10.5\" --constraint \"https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-3.10.txt\"",
+
+  // Automatically open and label the Airflow Webserver port (8080)
+  "portsAttributes": {
+    "8080": {
+      "label": "Airflow Webserver",
+      "onAutoForward": "notify"
+    }
+  },
+
+  // Keep the airflow user as non-root
+  "remoteUser": "vscode"
+}
